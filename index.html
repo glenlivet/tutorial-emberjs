@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="js/libs/jquery.js"></script>
+		<!--
+		<script type="text/javascript" src="jquery-ui.js"></script>
+    <script type="text/javascript" src="ik-menu.js"></script>
+-->
+  	<script src="js/libs/handlebars.js"></script>
+  	<script src="js/libs/ember.js"></script>
+  	<script src="js/libs/ember-data.js"></script>
+  	<script src="js/libs/localstorage_adapter.js"></script>
+  	<script src="js/application.js"></script>
+  	<script src="js/router.js"></script>
+  	<script src="js/models/article.js"></script>
+  	<script src="js/controllers/home_controller.js"></script>
+  	<link rel="stylesheet" type="text/css"  href="styles/reset.min.css" />
+		<style>
+		#page-wrapper {
+			font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+		}
+		#page-wrapper > header {
+			position: relative;
+			width: 100%;
+			min-width: 960px;
+			height: 60px;
+			background: #e1563f top center;
+			background-image: url("images/navigation_background.png");
+			border-bottom: 1px solid #aa412f;
+			z-index: 10;
+			-moz-box-shadow: rgba(0,0,0,0.3) 0 0 3px;
+			-webkit-box-shadow: rgba(0,0,0,0.3) 0 0 3px;
+			box-shadow: rgba(0,0,0,0.3) 0 0 3px;
+		}
+
+		#header-wrapper {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+#header-wrapper #logo {
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  width: 103px;
+  height: 40px;
+  background-image: url("images/ember_logo.png");
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+#head-nav {
+  width: 700px;
+  height: 65px;
+  margin: 0 auto;
+  text-align: center;
+}
+#head-nav li {
+  line-height: 26px;
+  margin: 18px 0 0;
+  display: inline-block;
+}
+#head-nav li a {
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #faf2ee;
+  text-shadow: rgba(0,0,0,0.3) 0px 1px 0px;
+  display: block;
+  padding: 0px 2em;
+  height: 26px;
+  line-height: 26px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+		</style>
+
+	</head>
+	<body>
+
+
+		<script type="text/x-handlebars" data-template-name="app">
+		<div id="page-wrapper">
+			<header>
+				<div id="header-wrapper">
+					<a id="logo" href="/"></a>
+				
+				<nav>
+					<ul id="head-nav">
+						{{#each}}
+						<li>
+							{{#link-to 'app.article' name 1}}{{name}}{{/link-to}}
+						</li>
+						{{/each}}
+						
+					</ul>
+				</nav>
+				</div>
+			</header>
+			<aside>
+				<nav id="aside-nav">
+				 
+				</nav>
+			</aside>
+			<div id="main-wrapper">
+				{{outlet}}
+			</div>
+		</div>
+		</script>
+		<script type="text/x-handlebars" data-template-name="app/index">
+			<h3>This is a ABOUT page!</h3>
+		</script>
+		<script type="text/x-handlebars" data-template-name="app/article">
+			<h3>type: {{type}}</h3> content: {{acontent}}
+		</script>
+	</body>
+	
+</html>
